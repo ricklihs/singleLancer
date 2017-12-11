@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule} from './app-routing.module';
 
+import { HeroesModule } from './heroes/heroes.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { AppRoutingModule} from './app-routing.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HeroesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
