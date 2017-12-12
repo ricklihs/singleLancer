@@ -1,7 +1,7 @@
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap} from '@angular/router';
+import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 
 import { Hero, HeroService} from './hero.service';
 
@@ -14,6 +14,7 @@ export class HeroListComponent implements OnInit {
   private selectedId: number;
 
   constructor(
+    private router: Router,
     private service: HeroService,
     private route: ActivatedRoute
   ) { }
@@ -25,6 +26,10 @@ export class HeroListComponent implements OnInit {
       return this.service.getHeroes();
 
     });
+  }
+
+  goToDetails(id) {
+    this.router.navigate(['/superhero', id]);
   }
 
 }
