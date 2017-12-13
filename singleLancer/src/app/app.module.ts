@@ -13,6 +13,8 @@ import { AppRoutingModule} from './app-routing.module';
 
 import { HeroesModule } from './heroes/heroes.module';
 
+import { DialogService } from './dialog.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,7 @@ import { HeroesModule } from './heroes/heroes.module';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ DialogService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
