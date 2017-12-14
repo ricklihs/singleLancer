@@ -21,7 +21,20 @@
         </ul>
       </div>
     </div>
+    
   </nav>
+  <br><br>
+  <h1 class="title">Angular Router</h1>
+  <nav>
+    <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+    <a routerLink="/superheroes1" routerLinkActive="active">Heroes1</a>
+    <a routerLink="/superheroes" routerLinkActive="active">Heroes</a>
+    <a routerLink="/admin" routerLinkActive="active">Admin</a>
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a [routerLink]="[{ outlets: { popup: ['compose']}}]">Contact</a>
+  </nav>
+  <router-outlet>qqqq</router-outlet>
+  <router-outlet name="popup"></router-outlet>
 
   
 <div style="padding:70px">
@@ -34,7 +47,9 @@
      </li>
  </ul>
  <br> 
- <router-outlet></router-outlet>
+ <!-- <router-outlet>11111</router-outlet>
+ 
+ <router-outlet name="popup"></router-outlet> -->
 </div>
 
   <footer class="container-fluid text-center">

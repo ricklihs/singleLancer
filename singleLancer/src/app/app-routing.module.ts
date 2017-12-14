@@ -6,13 +6,25 @@ import { PageNotFoundComponent} from './page-not-found/page-not-found.component'
 
 const appRoutes: Routes = [
   { path : 'home', component : HomeComponent},
+
+  {
+    path: 'crisis-center',
+    loadChildren: 'app/crisis-center/crisis-center.module#CrisisCenterModule',
+    data: { preload: true }
+  },
+  { path : 'superheroes1',
+  loadChildren: 'app/heroes/heroes.module#HeroesModule',
+  data: { preload: true }
+  },
   { path : '', redirectTo : '/superheroes', pathMatch : 'full'},
   { path : '**', component : PageNotFoundComponent}
 ];
 
 @NgModule({
   imports: [
-    CommonModule, RouterModule.forRoot(appRoutes)
+    CommonModule, RouterModule.forRoot(
+      appRoutes,
+    {enableTracing: true})
   ],
   exports: [RouterModule]
 })
