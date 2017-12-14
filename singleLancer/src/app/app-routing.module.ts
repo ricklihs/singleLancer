@@ -8,6 +8,11 @@ const appRoutes: Routes = [
   { path : 'home', component : HomeComponent},
 
   {
+    path: 'crisis-center1',
+    loadChildren: 'app/crisis-center1/crisis-center.module#CrisisCenterModule',
+    data: { preload: true }
+  },
+  {
     path: 'crisis-center',
     loadChildren: 'app/crisis-center/crisis-center.module#CrisisCenterModule',
     data: { preload: true }

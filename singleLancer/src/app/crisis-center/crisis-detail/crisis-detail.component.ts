@@ -8,7 +8,23 @@ import { DialogService } from '../../dialog.service';
 
 @Component({
   selector: 'app-crisis-detail',
-  templateUrl: './crisis-detail.component.html',
+  // templateUrl: './crisis-detail.component.html',
+  template: `
+  <div *ngIf="crisis">
+    <h3>"{{ editName }}"</h3>
+    <div>
+      <label>Id: </label>{{ crisis.id }}</div>
+    <div>
+      <label>Name: </label>
+     <input [(ngModel)]="editName" placeholder="name"/>
+    </div>
+    <p>
+      <button (click)="save()">Save</button>
+      <button (click)="cancel()">Cancel</button>
+    </p>
+  </div>
+  `,
+
   styleUrls: ['./crisis-detail.component.css'],
   animations: [ slideInDownAnimation ]
 })
