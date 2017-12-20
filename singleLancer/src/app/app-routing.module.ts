@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules} from '@angular/router';
 import { HomeComponent} from './home/home.component';
 import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
@@ -29,7 +29,7 @@ const appRoutes: Routes = [
   imports: [
     CommonModule, RouterModule.forRoot(
       appRoutes,
-    {enableTracing: true})
+    {enableTracing: true, preloadingStrategy: PreloadAllModules})
   ],
   exports: [RouterModule]
 })

@@ -25,7 +25,8 @@ import { DialogService } from '../../dialog.service';
   </div>
   `,
 
-  styleUrls: ['./crisis-detail.component.css'],
+  // styleUrls: ['./crisis-detail.component.css'],
+  styles: ['input {width: 20em}'],
   animations: [ slideInDownAnimation ]
 })
 export class CrisisDetailComponent implements OnInit {
