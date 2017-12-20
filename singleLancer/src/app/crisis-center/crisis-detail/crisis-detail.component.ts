@@ -3,27 +3,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { slideInDownAnimation } from '../../animations';
-import { Crisis } from '../crisis.service';
+import { Crisis, CrisisService } from '../crisis.service';
 import { DialogService } from '../../dialog.service';
 
 @Component({
   selector: 'app-crisis-detail',
-  // templateUrl: './crisis-detail.component.html',
-  template: `
-  <div *ngIf="crisis">
-    <h3>"{{ editName }}"</h3>
-    <div>
-      <label>Id: </label>{{ crisis.id }}</div>
-    <div>
-      <label>Name: </label>
-     <input [(ngModel)]="editName" placeholder="name"/>
-    </div>
-    <p>
-      <button (click)="save()">Save</button>
-      <button (click)="cancel()">Cancel</button>
-    </p>
-  </div>
-  `,
+  templateUrl: './crisis-detail.component.html',
+  // (1a) If do not use resolve in routing, then use crisis$ here
+  // original <div *ngIf="crisis | async ">
+  // template: `
+  // <div *ngIf="crisis$ | async as crisis">
+  //   <h3>"{{ editName }}"</h3>
+  //   <div>
+  //     <label>Id: </label>{{ crisis.id }}</div>
+  //   <div>
+  //     <label>Name: </label>
+  //    <input [(ngModel)]="editName" placeholder="name"/>
+  //   </div>
+  //   <p>
+  //     <button (click)="save()">Save</button>
+  //     <button (click)="cancel()">Cancel</button>
+  //   </p>
+  // </div>
+  // `,
 
   // styleUrls: ['./crisis-detail.component.css'],
   styles: ['input {width: 20em}'],
@@ -35,12 +37,14 @@ export class CrisisDetailComponent implements OnInit {
   @HostBinding('style.position') position = 'absolute';
 
   crisis: Crisis;
+  // (1a) crisis$: Observable<Crisis>;
   editName: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public dialogService: DialogService
+    public dialogService: DialogService,
+    // (1a) private service: CrisisService // if do not use resolve then use getCrisis in service
   ) { }
 
   ngOnInit() {
@@ -49,6 +53,12 @@ export class CrisisDetailComponent implements OnInit {
         this.editName = data.crisis.name;
         this.crisis = data.crisis;
       });
+
+      // (1a) If do not use resolve
+      // this.crisis$ = this.route.paramMap
+      // .switchMap((params: ParamMap) =>
+      //   this.service.getCrisis(+params.get('id')));
+
   }
 
   cancel() {

@@ -29,7 +29,8 @@ const appRoutes: Routes = [
   imports: [
     CommonModule, RouterModule.forRoot(
       appRoutes,
-    {enableTracing: true, preloadingStrategy: PreloadAllModules})
+      {enableTracing: true})
+      // {enableTracing: true, preloadingStrategy: PreloadAllModules})
   ],
   exports: [RouterModule]
 })
