@@ -14,12 +14,14 @@ import { AppRoutingModule} from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
 
 import { DialogService } from './dialog.service';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ComposeMessageComponent
   ],
   imports: [
     BrowserModule,
