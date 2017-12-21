@@ -7,26 +7,30 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule} from './app-routing.module';
 
+import { HomeComponent } from './home/home.component';
 import { HeroesModule } from './heroes/heroes.module';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { LoginComponent } from './login/login.component';
+import { LoginRoutingModule } from './login/login-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { DialogService } from './dialog.service';
-import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
-    ComposeMessageComponent
+    ComposeMessageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HeroesModule,
+    LoginRoutingModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule
