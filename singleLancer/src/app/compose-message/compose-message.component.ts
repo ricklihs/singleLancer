@@ -2,7 +2,6 @@ import { Component, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { slideInDownAnimation } from '../animations';
-import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-compose-message',
