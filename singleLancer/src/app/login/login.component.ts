@@ -4,7 +4,14 @@ import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  // templateUrl: './login.component.html',
+  template: `
+  <h2>LOGIN</h2>
+  <p>{{message}}</p>
+  <p>
+    <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
+    <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+  </p>`,
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
@@ -30,6 +37,7 @@ export class LoginComponent {
 
        // Set our navigation extras object
        // that passes on our global query params and fragment
+       // preserve for current params and fragment
        const navigationExtras: NavigationExtras = {
          queryParamsHandling: 'preserve',
          preserveFragment: true
