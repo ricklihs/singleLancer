@@ -21,8 +21,9 @@ import { CrisisCenterRoutingModule } from './crisis-center-routing.module';
   declarations: [
     CrisisCenterComponent,
     CrisisListComponent,
-    CrisisDetailComponent,
-    CrisisCenterHomeComponent],
+    CrisisCenterHomeComponent,
+    CrisisDetailComponent
+    ],
 
   providers: [CrisisService]
 })

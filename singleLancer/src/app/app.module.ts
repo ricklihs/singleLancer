@@ -22,9 +22,9 @@ import { DialogService } from './dialog.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent,
     ComposeMessageComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
