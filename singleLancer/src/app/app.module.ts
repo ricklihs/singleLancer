@@ -18,24 +18,47 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { DialogService } from './dialog.service';
 
+// add from client log
+import { HttpModule } from '@angular/http';
+import { AppConfig } from './app.config';
+
+import { AlertComponent } from './_directives/index';
+import { AuthGuard } from './_guards/index';
+import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { RegisterComponent } from './register/index';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ComposeMessageComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+
+    // add from client
+    AlertComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HeroesModule,
+    HttpModule, // add from client
     LoginRoutingModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // routing
   ],
-  providers: [ DialogService ],
+  providers: [
+    DialogService,
+    // add from client
+    AppConfig,
+    AuthGuard, // there are two AuthGuard ,other is in auth-guard.service and privid in login-routing.module.ts
+    AlertService,
+    AuthenticationService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
