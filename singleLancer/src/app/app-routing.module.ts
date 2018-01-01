@@ -45,11 +45,11 @@ const appRoutes: Routes = [
     // CommonModule,
     RouterModule.forRoot(
       appRoutes,
-      // {
-      //   enableTracing: true,
-      //   preloadingStrategy: SelectivePreloadingStrategy
-      // })
-       {enableTracing: true, preloadingStrategy: PreloadAllModules})
+      {
+        enableTracing: true,
+        preloadingStrategy: SelectivePreloadingStrategy
+      })
+      // {enableTracing: true, preloadingStrategy: PreloadAllModules})
   ],
   exports: [
     RouterModule
