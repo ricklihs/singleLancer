@@ -55,10 +55,35 @@ export class LoginComponent implements OnInit {
 
 
   // 4)
+  // login() {
+  //   this.message = 'Trying to log in ...';
+
+  //   this.authService.login().subscribe(() => {
+  //     this.setMessage();
+  //     if (this.authService.isLoggedIn) {
+  //       // Get the redirect URL from our auth service
+  //       // If no redirect has been set, use the default
+  //       const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin';
+
+  //      // Set our navigation extras object
+  //      // that passes on our global query params and fragment
+  //      // preserve for current params and fragment
+  //      const navigationExtras: NavigationExtras = {
+  //        queryParamsHandling: 'preserve',
+  //        preserveFragment: true
+  //      };
+
+  //      // Redirect the user
+  //      this.router.navigate([redirect], navigationExtras);
+  //     }
+
+  //   });
+  // }
+
   login() {
     this.message = 'Trying to log in ...';
-
-    this.authService.login().subscribe(() => {
+    this.loading = true; // add
+    this.authService.login(this.model.username, this.model.password).subscribe(() => {
       this.setMessage();
       if (this.authService.isLoggedIn) {
         // Get the redirect URL from our auth service

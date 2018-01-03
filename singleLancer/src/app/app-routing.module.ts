@@ -7,8 +7,10 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
 import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
-import { AuthGuard } from './auth-guard.service';
+// import { AuthGuard } from './auth-guard.service';
 import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
+
+import { AuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
   { path : 'home', component : HomeComponent },
@@ -20,7 +22,7 @@ const appRoutes: Routes = [
   {
     path: 'admin',
     loadChildren: 'app/admin/admin.module#AdminModule',
-    canLoad: [AuthGuard]
+    // canLoad: [AuthGuard]
   },
   {
     path: 'crisis-center1',

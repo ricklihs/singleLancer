@@ -22,24 +22,25 @@ export class AuthService {
   redirectUrl: string;
 
   // 2)
-  login(): Observable<boolean> {
-    return Observable.of(true)
-      .delay(1000)
-      .do(val => this.isLoggedIn = true);
-  }
-
-  // login(username:  string, password: string) {
-  //   return this.http.post(this.config.apiUrl + '/users/authenticate',
-  //     { username: username, password: password })
-  //       .map((response: Response) => {
-  //         // login successful if there's a jwt token in the response
-  //         const user = response.json();
-  //         if ( user && user.token) {
-  //              // store user details and jwt token in local storage to keep user logged in between page refreshes
-  //             localStorage.setItem('currentUser', JSON.stringify(user));
-  //         }
-  //       });
+  // login(): Observable<boolean> {
+  //   return Observable.of(true)
+  //     .delay(1000)
+  //     .do(val => this.isLoggedIn = true);
   // }
+
+  login(username:  string, password: string): Observable<any> {
+    return this.http.post(this.config.apiUrl + '/users/authenticate',
+      { username: username, password: password })
+        .map((response: Response) => {
+          // login successful if there's a jwt token in the response
+          const user = response.json();
+          if ( user && user.token) {
+               // store user details and jwt token in local storage to keep user logged in between page refreshes
+              localStorage.setItem('currentUser', JSON.stringify(user));
+          }
+          this.isLoggedIn = true; // add
+        });
+  }
 
   logout(): void {
     this.isLoggedIn = false;
