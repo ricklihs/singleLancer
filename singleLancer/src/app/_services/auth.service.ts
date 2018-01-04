@@ -28,9 +28,10 @@ export class AuthService {
   //     .do(val => this.isLoggedIn = true);
   // }
 
+  // http.post default return Observable<Response>
   login(username:  string, password: string): Observable<any> {
     return this.http.post(this.config.apiUrl + '/users/authenticate',
-      { username: username, password: password })
+      { username: username, password: password }) // http.post return Response Type
         .map((response: Response) => {
           // login successful if there's a jwt token in the response
           const user = response.json();

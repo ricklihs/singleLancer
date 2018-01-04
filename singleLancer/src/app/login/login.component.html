@@ -1,9 +1,6 @@
 <h2>LOGIN</h2>
 <p>{{message}}</p>
-<p>
-  <button (click)="login()" *ngIf="!authService.isLoggedIn">Login</button>
-  <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
-</p>
+
 <div class="col-md-6 col-md-offset-3">
   <h2>Login V-2-1</h2>
   <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
@@ -23,4 +20,9 @@
           <a [routerLink]="['/register']" class="btn btn-link">Register</a>
       </div>
   </form>
+  <p>
+    <!-- <button (click)="login()" *ngIf="!authService.isLoggedIn">Login</button> -->
+    <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+  </p>
 </div>
+

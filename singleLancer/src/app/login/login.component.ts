@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   // 1) add
   model: any = {};
   loading = false;
-  returnUrl: string;
+ // returnUrl: string;
 
   // constructor(public authService: AuthService, public router: Router) {
   //   this.setMessage();
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     this.authService.logout();
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+   // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
 
@@ -100,9 +100,15 @@ export class LoginComponent implements OnInit {
 
        // Redirect the user
        this.router.navigate([redirect], navigationExtras);
+       // this.router.navigate([this.returnUrl]);
       }
 
-    });
+    },
+    error => {
+      this.alertService.error('Username or password is incorrect');
+      this.loading = false;
+    }
+  );
   }
 
   logout() {
